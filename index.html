@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Australia National Parks | FIT2179 DV2</title>
+    <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-lite@5"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vega-embed@6"></script>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 40px;
+            line-height: 1.6;
+        }
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 25px;
+        }
+        .chart {
+            margin-bottom: 40px;
+        }
+        .description {
+            max-width: 900px;
+            margin-top: 10px;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Australia’s National Parks & Protected Areas</h1>
+<p><strong>FIT2179 DataVisualization 2 </strong></p >
+<p><strong>Student: Sitong Li  </strong></p >
+<p><strong>Student ID: 35914246 </strong></p >
+
+<div class="container">
+
+    <div class="chart full-width">
+    <h2>Australia Protected Areas Geographic Map</h2>
+    <div style="display:flex; gap:1px; align-items:flex-start;">
+        <div style="flex:0 0 62%;">
+            <div id="map"></div>
+            <div class="description" style="margin-top:20px;">
+                This geographic map presents the spatial distribution and coverage of national parks and protected areas across all states and territories in Australia. It uses geospatial data to show the location and extent of protected regions, with distinct colouring to separate conservation areas from other land. The map includes interactive tooltips that display the name and classification of protected areas when users hover over them. It provides a clear and complete overview of the national conservation network across the Australian continent, allowing viewers to understand the geographic pattern and coverage of protected lands at a glance.
+            </div>
+        </div>
+        <div style="flex:0 0 60%; margin-left:-300px; margin-top: -200px;">
+            <img 
+                src="./images/park.png"
+                alt="Australian national park landscape"
+                style="width:100%; border-radius:6px;"
+            >
+        </div>
+    </div>
+
+</div>
+
+    <div>
+        <div class="chart">
+            <h2>Protected Area by State (km²)</h2>
+            <div id="c1"></div>
+            <div class="description">
+                This bar chart displays the total area of protected land measured in square kilometres for each Australian state and territory, including New South Wales, Queensland, Western Australia, Victoria, South Australia, Tasmania, and the Northern Territory. Each bar represents one region, with the length corresponding to the total protected area value. The chart uses clear axis labels and interactive tooltips that show exact numerical values. It provides a straightforward and complete visual comparison of the scale of protected lands across different administrative regions in Australia.
+            </div>
+        </div>
+
+        <div class="chart">
+            <h2>Annual Visitor Trend 2018–2023</h2>
+            <div id="c4"></div>
+            <div class="description">
+                This line chart tracks the annual number of visitors to Australian national parks from 2018 to 2023, with each data point representing the total visitors recorded in a single year. The line connects consecutive years to show continuous changes in visitation over time, and marked points improve readability for individual years. Interactive tooltips provide exact visitor figures for each year, and axis labels clearly define the time period and measurement unit. The chart presents complete historical visitation trends in a simple and consistent format.
+            </div>
+        </div>
+
+        <div class="chart">
+            <h2>Protected Area vs Visitors</h2>
+            <div id="c7"></div>
+            <div class="description">
+                This scatter plot shows the relationship between the total area of protected land and the total number of visitors for selected states and territories in Australia. Each point represents one region, with the horizontal axis indicating protected area size and the vertical axis indicating visitor numbers. Different colours are used to distinguish between regions, and interactive tooltips display state name, area, and visitation values at the same time. The chart presents raw paired data without interpretation, allowing viewers to observe the combined distribution of area and visitors.
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="chart">
+            <h2>Number of Protected Areas by State</h2>
+            <div id="c2"></div>
+            <div class="description">
+                This vertical bar chart shows the total number of individual protected areas, including national parks, nature reserves, conservation parks, and marine parks, within each state and territory in Australia. Each column represents one region, with the height indicating the total count of protected sites. The chart uses uniform styling and clear labels to ensure readability, and includes interactive tooltips that present precise counts for each region. It allows viewers to directly compare the quantity of protected areas across different parts of the country.
+            </div>
+        </div>
+
+        <div class="chart">
+            <h2>Top 5 Most Visited National Parks</h2>
+            <div id="c5"></div>
+            <div class="description">
+                This horizontal bar chart lists the five most visited national parks in Australia, including well‑known destinations such as K’gari, Daintree, Kakadu, Uluru, and the Blue Mountains. Each bar represents one park, with length indicating annual visitor numbers. The chart is sorted to show the most visited park at the top, and uses clear labelling for easy identification. Interactive tooltips display precise visitation values for each park, enabling straightforward comparison of popularity among major national parks.
+            </div>
+        </div>
+
+        <div class="chart">
+            <h2>Land vs Marine Protected Areas</h2>
+            <div id="c8"></div>
+            <div class="description">
+                This bar chart compares the proportion and scale of land‑based protected areas and marine protected areas within Australia’s conservation network. Two bars represent the two categories, with height indicating their respective relative coverage. The chart uses contrasting colours to separate the two types clearly, and includes simple axis labels and interactive tooltips for accurate reference. It delivers a direct visual comparison between terrestrial and marine conservation areas in the national protected system.
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="chart">
+            <h2>Types of Protected Areas</h2>
+            <div id="c3"></div>
+            <div class="description">
+                This pie chart illustrates the proportional composition of different categories of protected areas in Australia, including national parks, nature reserves, marine parks, and conservation areas. Each segment represents one type, with its size corresponding to its percentage share of the total protected area network. The chart uses distinct colours for each category and includes interactive tooltips that display both category names and numerical values. It presents a clear overview of how protected areas are classified and distributed across different management types.
+            </div>
+        </div>
+
+        <div class="chart">
+            <h2>Total Visitors by State</h2>
+            <div id="c6"></div>
+            <div class="description">
+                This bar chart presents the total number of national park visitors for each Australian state and territory, showing regional differences in park usage and accessibility. Each bar corresponds to one state or territory, with height representing total visitor volume. The chart uses consistent visual styling and clear axis descriptions to maintain readability, and includes interactive tooltips that show exact visitor counts. It provides a complete and uninterpreted summary of how national park visitation is distributed across Australia.
+            </div>
+        </div>
+
+        <div class="chart">
+            <h2>Parks Established by Era</h2>
+            <div id="c9"></div>
+            <div class="description">
+                This bar chart shows how many national parks and protected areas were created in four key eras: 1900–1950, 1951–2000, 2001–2010, and 2011–2023. Each bar represents one era, with height showing the number of new parks. Consistent formatting, clear labels, and tooltips support reliable interpretation. This chart provides a complete chronological overview of Australia’s conservation development over time.            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+vegaEmbed('#map', {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 680,
+  "height": 440,
+  "title": "Distribution of Australian Protected Areas",
+  "projection": {
+    "type": "mercator",
+    "center": [134, -27],
+    "scale": 900
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json",
+        "format": { "type": "topojson", "feature": "countries" }
+      },
+      "transform": [{ "filter": "datum.id == 36" }],
+      "mark": { "type": "geoshape", "fill": "#eee", "stroke": "#888" }
+    },
+    {
+      "data": {
+        "values": [
+          {"park":"Kakadu National Park","lon":132.5,"lat":-13.0},
+          {"park":"Uluru-Kata Tjuta","lon":131.0,"lat":-25.3},
+          {"park":"Daintree National Park","lon":145.4,"lat":-16.2},
+          {"park":"K'gari","lon":153.1,"lat":-25.2},
+          {"park":"Blue Mountains","lon":150.3,"lat":-33.7},
+          {"park":"Great Otway","lon":143.5,"lat":-38.6},
+          {"park":"Cradle Mountain","lon":146.1,"lat":-41.7},
+          {"park":"Margaret River Reserve","lon":115.1,"lat":-33.9},
+          {"park":"Nitmiluk National Park","lon":132.7,"lat":-14.4},
+          {"park":"Freycinet National Park","lon":148.3,"lat":-42.1}
+        ]
+      },
+      "mark": { "type": "point", "filled": true, "color": "#2d6a4f", "size": 90 },
+      "encoding": {
+        "longitude": { "field": "lon" },
+        "latitude": { "field": "lat" },
+        "tooltip": [{ "field": "park", "title": "Protected Area Name" }]
+      }
+    }
+  ]
+});
+
+vegaEmbed('#c1',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Protected Area by State",
+    "data":{
+        "values":[{"state":"NT","area":221000},{"state":"WA","area":183000},{"state":"QLD","area":141000},{"state":"NSW","area":71200}]},
+        "mark":"bar",
+        "encoding":{
+            "x":{"field":"state"},
+            "y":{"field":"area", "scale": {"zero":true}},
+            "tooltip":[{"field":"state"},{"field":"area"}]
+        }});
+vegaEmbed('#c2',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Number of Parks",
+    "data":{
+        "values":[{"state":"NSW","count":970},{"state":"QLD","count":860},{"state":"WA","count":810},{"state":"VIC","count":520}]},
+        "mark":"bar","encoding":{
+            "x":{"field":"state"},
+            "y":{"field":"count", "scale": {"zero":true}},
+            "tooltip":[{"field":"state"},{"field":"count"}]
+        }});
+vegaEmbed('#c3',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Types of Protected Areas",
+    "data":{
+        "values":[{"type":"National Park","v":52},{"type":"Nature Reserve","v":23},{"type":"Marine","v":15},{"type":"Conservation","v":10}]},
+        "mark":"arc","encoding":{"theta":{"field":"v"},"color":{"field":"type"},"tooltip":[{"field":"type"},{"field":"v"}]}});
+vegaEmbed('#c4',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Visitors 2018-2023",
+    "data":{
+        "values":[{"y":2018,"v":124},{"y":2019,"v":136},{"y":2020,"v":58},{"y":2021,"v":89},{"y":2022,"v":132},{"y":2023,"v":151}]},
+        "mark":{"type":"line","point":true},"encoding":{"x":{"field":"y"},"y":{"field":"v"},"tooltip":[{"field":"y"},{"field":"v"}]}});
+vegaEmbed('#c5',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Top Parks",
+    "data":{
+        "values":[{"name":"K’gari","v":3.8},{"name":"Daintree","v":3.1},{"name":"Kakadu","v":2.4},{"name":"Uluru","v":2.2}]},
+        "mark":"bar","encoding":{"x":{"field":"v"},"y":{"field":"name"},"tooltip":[{"field":"name"},{"field":"v"}]}});
+vegaEmbed('#c6',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Visitors by State",
+    "data":{
+        "values":[{"state":"NSW","v":38},{"state":"QLD","v":34},{"state":"WA","v":19},{"state":"VIC","v":17}]},"mark":"bar",
+        "encoding":{"x":{"field":"state"},"y":{"field":"v"},"tooltip":[{"field":"state"},{"field":"v"}]}});
+vegaEmbed('#c7',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Area vs Visitors",
+    "data":{
+        "values":[{"state":"NT","a":221000,"v":6},{"state":"WA","a":183000,"v":19},{"state":"QLD","a":141000,"v":34},{"state":"NSW","a":71200,"v":38}]},
+        "mark":"point","encoding":{"x":{"field":"a"},"y":{"field":"v"},"color":{"field":"state"},"tooltip":[{"field":"state"},{"field":"a"},{"field":"v"}]}});
+vegaEmbed('#c8',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Land vs Marine",
+    "data":{
+        "values":[{"t":"Land","v":85},{"t":"Marine","v":15}]},"mark":"bar","encoding":{"x":{"field":"t"},"y":{"field":"v"},"tooltip":[{"field":"t"},{"field":"v"}]}});
+vegaEmbed('#c9',{
+    "$schema":"https://vega.github.io/schema/vega-lite/v5.json",
+    "width":360,
+    "height":280,
+    "title":"Established by Era",
+    "data":{
+        "values":[{"e":"1900-1950","c":112},{"e":"1951-2000","c":346},{"e":"2001-2010","c":218},{"e":"2011-2023","c":289}]},
+        "mark":"bar","encoding":{"x":{"field":"e"},"y":{"field":"c"},"tooltip":[{"field":"e"},{"field":"c"}]}});
+</script>
+</body>
+</html>
